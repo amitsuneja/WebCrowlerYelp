@@ -1,0 +1,334 @@
+my_html = """<ul class="ylist ylist-bordered reviews" data-component-bound="true">
+    <li>
+        <div class="review review--with-sidebar" data-review-id="gTvugn2a1Y0bKY9l0grI2g"
+             data-signup-object="user_id:o4yDyl5SwjZJfWR37loJGA">
+            <div class="review-sidebar">
+                <div class="review-sidebar-content">
+                    <div class="ypassport media-block">
+                        <div class="media-avatar responsive-photo-box">
+                            <div class="photo-box pb-60s" data-hovercard-id="Ccjp4QHGFv-foHR_xsc1aA">
+                                <a href="/user_details?userid=o4yDyl5SwjZJfWR37loJGA" class="js-analytics-click"
+                                   data-analytics-label="user-photo">
+                                    <img alt="Jessie T." class="photo-box-img" height="60"
+                                         src="https://s3-media2.fl.yelpcdn.com/photo/qPIU8dJzR7pGZjSz2Gvk-Q/60s.jpg"
+                                         srcset="https://s3-media2.fl.yelpcdn.com/photo/qPIU8dJzR7pGZjSz2Gvk-Q/90s.jpg 1.50x,https://s3-media2.fl.yelpcdn.com/photo/qPIU8dJzR7pGZjSz2Gvk-Q/168s.jpg 2.80x,https://s3-media2.fl.yelpcdn.com/photo/qPIU8dJzR7pGZjSz2Gvk-Q/ms.jpg 1.67x,https://s3-media2.fl.yelpcdn.com/photo/qPIU8dJzR7pGZjSz2Gvk-Q/180s.jpg 3.00x,https://s3-media2.fl.yelpcdn.com/photo/qPIU8dJzR7pGZjSz2Gvk-Q/120s.jpg 2.00x"
+                                         width="60">
+
+                                </a>
+
+                            </div>
+
+
+                        </div>
+                        <div class="media-story">
+                            <ul class="user-passport-info">
+                                <li class="user-name">
+                                    <a class="user-display-name js-analytics-click"
+                                       href="/user_details?userid=o4yDyl5SwjZJfWR37loJGA"
+                                       data-hovercard-id="Ccjp4QHGFv-foHR_xsc1aA" data-analytics-label="about_me"
+                                       id="dropdown_user-name">Jessie T.</a>
+                                </li>
+                                <li class="user-location responsive-hidden-small">
+                                    <b>Cave Springs, AR</b>
+                                </li>
+                            </ul>
+
+
+                            <ul class="user-passport-stats">
+                                <li class="friend-count responsive-small-display-inline-block">
+            <span aria-hidden="true" style="fill: #f15c00; width: 18px; height: 18px;"
+                  class="icon icon--18-friends icon--size-18">
+    <svg role="img" class="icon_svg">
+        <use xlink:href="#18x18_friends"></use>
+    </svg>
+</span>
+                                    <b>0</b> friends
+                                </li>
+                                <li class="review-count responsive-small-display-inline-block">
+            <span aria-hidden="true" style="fill: #f15c00; width: 18px; height: 18px;"
+                  class="icon icon--18-review icon--size-18">
+    <svg role="img" class="icon_svg">
+        <use xlink:href="#18x18_review"></use>
+    </svg>
+</span>
+                                    <b>8</b> reviews
+                                </li>
+                                <li class="photo-count responsive-small-display-inline-block">
+                <span aria-hidden="true" style="fill: #f15c00; width: 18px; height: 18px;"
+                      class="icon icon--18-camera icon--size-18">
+    <svg role="img" class="icon_svg">
+        <use xlink:href="#18x18_camera"></use>
+    </svg>
+</span>
+                                    <b>2</b> photos
+                                </li>
+
+                            </ul>
+
+                        </div>
+                    </div>
+
+                    <ul class="action-link-list action-link-list--small">
+
+                        <li>
+
+
+                            <a class="arrange arrange--middle send-to-friend"
+                               data-pop-uri="/send_to_friend/review/gTvugn2a1Y0bKY9l0grI2g" href="javascript:;" rel="">
+                                <div class="action-link_icon arrange_unit">
+            <span aria-hidden="true" style="width: 18px; height: 18px;"
+                  class="icon icon--18-share icon--size-18 icon--currentColor">
+    <svg role="img" class="icon_svg">
+        <use xlink:href="#18x18_share"></use>
+    </svg>
+</span>
+                                </div>
+                                <div class="action-link_label arrange_unit arrange_unit--fill">
+                                    Share review
+                                </div>
+                            </a>
+
+                        </li>
+
+                        <li>
+
+
+                            <a class="arrange arrange--middle embed-review"
+                               data-pop-uri="/review_embed_modal/gTvugn2a1Y0bKY9l0grI2g" href="javascript:;" rel="">
+                                <div class="action-link_icon arrange_unit">
+            <span aria-hidden="true" style="width: 18px; height: 18px;"
+                  class="icon icon--18-embed icon--size-18 icon--currentColor">
+    <svg role="img" class="icon_svg">
+        <use xlink:href="#18x18_embed"></use>
+    </svg>
+</span>
+                                </div>
+                                <div class="action-link_label arrange_unit arrange_unit--fill">
+                                    Embed review
+                                </div>
+                            </a>
+
+                        </li>
+
+                        <li>
+
+
+                            <a class="arrange arrange--middle send-compliment" href="javascript:;" rel="">
+                                <div class="action-link_icon arrange_unit">
+            <span aria-hidden="true" style="width: 18px; height: 18px;"
+                  class="icon icon--18-compliment icon--size-18 icon--currentColor">
+    <svg role="img" class="icon_svg">
+        <use xlink:href="#18x18_compliment"></use>
+    </svg>
+</span>
+                                </div>
+                                <div class="action-link_label arrange_unit arrange_unit--fill">
+                                    Compliment
+                                </div>
+                            </a>
+
+                        </li>
+
+                        <li>
+
+
+                            <a class="arrange arrange--middle send-pm" href="javascript:;" rel="Jessie T.">
+                                <div class="action-link_icon arrange_unit">
+            <span aria-hidden="true" style="width: 18px; height: 18px;"
+                  class="icon icon--18-speech icon--size-18 icon--currentColor">
+    <svg role="img" class="icon_svg">
+        <use xlink:href="#18x18_speech"></use>
+    </svg>
+</span>
+                                </div>
+                                <div class="action-link_label arrange_unit arrange_unit--fill">
+                                    Send message
+                                </div>
+                            </a>
+
+                        </li>
+
+                        <li>
+
+
+                            <a class="arrange arrange--middle manage-following manage-following-add"
+                               data-csrf-token="379ddb849fd0c23a9e2fcd2bda20a07cebcb52d95d9a8e60d7e448603c250771"
+                               href="javascript:;" rel="o4yDyl5SwjZJfWR37loJGA">
+                                <div class="action-link_icon arrange_unit">
+            <span aria-hidden="true" style="width: 18px; height: 18px;"
+                  class="icon icon--18-following icon--size-18 icon--currentColor">
+    <svg role="img" class="icon_svg">
+        <use xlink:href="#18x18_following"></use>
+    </svg>
+</span>
+                                </div>
+                                <div class="action-link_label arrange_unit arrange_unit--fill">
+                                    Follow Jessie T.
+                                </div>
+                            </a>
+
+                        </li>
+
+                        <li>
+
+
+                            <a class="arrange arrange--middle manage-following manage-following-remove hidden"
+                               data-csrf-token="379ddb849fd0c23a9e2fcd2bda20a07cebcb52d95d9a8e60d7e448603c250771"
+                               href="javascript:;" rel="o4yDyl5SwjZJfWR37loJGA">
+                                <div class="action-link_icon arrange_unit">
+            <span aria-hidden="true" style="width: 18px; height: 18px;"
+                  class="icon icon--18-unfollow icon--size-18 icon--currentColor">
+    <svg role="img" class="icon_svg">
+        <use xlink:href="#18x18_unfollow"></use>
+    </svg>
+</span>
+                                </div>
+                                <div class="action-link_label arrange_unit arrange_unit--fill">
+                                    Stop following Jessie T.
+                                </div>
+                            </a>
+
+                        </li>
+
+
+                    </ul>
+
+                </div>
+            </div>
+            <div class="review-wrapper">
+                <div class="review-content">
+                    <div class="biz-rating biz-rating-large clearfix">
+                        <div>
+
+
+                            <div class="i-stars i-stars--regular-5 rating-large" title="5.0 star rating">
+                                <img class="offscreen" height="303"
+                                     src="https://s3-media2.fl.yelpcdn.com/assets/srv0/yelp_design_web/9b34e39ccbeb/assets/img/stars/stars.png"
+                                     width="84" alt="5.0 star rating">
+                            </div>
+
+
+                        </div>
+                        <span class="rating-qualifier">
+        6/14/2018
+    </span>
+
+                    </div>
+
+
+                    <p lang="en">I was swayed to try B21 after reading the reviews on the shakes and burgers I read and
+                        I have to say I was thrown by the service AND the food. The young dark haired guy at the front
+                        made the joke 'we left nothing for ants' was funny and right. Everything was great! I had the
+                        Black and Bleu with the shareable sweet potato fries. Others had the Chicken Med., The OMG and
+                        the Buffalo Chicken. I ate the fries first and thought I wouldn't finish the burger- hunger
+                        aside I could not bear leaving it because it was that good. My daughters had the shakes and said
+                        'the shakes are bomb.' I think that means great because they took them to go and finished them.
+                        Nice and clean and burgers and shakes on point- I'll go back before I leave Orlando!</p>
+
+                </div>
+                <div class="review-footer clearfix">
+                    <div class="rateReview voting-feedback" data-review-id="gTvugn2a1Y0bKY9l0grI2g"
+                         data-origin="biz_details_review_feed">
+                        <p class="voting-intro voting-prompt">
+                            Was this review …?
+                        </p>
+                        <ul class="voting-buttons"
+                            data-csrf-token="4cd10ecae64fffe1cd57fdca0d64be52be36aaa2b0fb7ae08b1ea9e5669b26cc">
+
+                            <li class="vote-item inline-block">
+
+                                <a class="ybtn ybtn--small useful js-analytics-click" data-analytics-label="ufc"
+                                   href="javascript:;" rel="useful">
+            <span aria-hidden="true" style="width: 18px; height: 18px;"
+                  class="icon icon--18-useful-outline icon--size-18 icon--currentColor button-content u-space-r-half">
+    <svg role="img" class="icon_svg">
+        <use xlink:href="#18x18_useful_outline"></use>
+    </svg>
+</span> <span class="vote-type">Useful</span>
+                                    <span class="count"></span>
+                                </a>
+                            </li>
+
+
+                            <li class="vote-item inline-block">
+
+                                <a class="ybtn ybtn--small funny js-analytics-click" data-analytics-label="ufc"
+                                   href="javascript:;" rel="funny">
+            <span aria-hidden="true" style="width: 18px; height: 18px;"
+                  class="icon icon--18-funny-outline icon--size-18 icon--currentColor button-content u-space-r-half">
+    <svg role="img" class="icon_svg">
+        <use xlink:href="#18x18_funny_outline"></use>
+    </svg>
+</span> <span class="vote-type">Funny</span>
+                                    <span class="count"></span>
+                                </a>
+                            </li>
+
+
+                            <li class="vote-item inline-block">
+
+                                <a class="ybtn ybtn--small cool js-analytics-click" data-analytics-label="ufc"
+                                   href="javascript:;" rel="cool">
+            <span aria-hidden="true" style="width: 18px; height: 18px;"
+                  class="icon icon--18-cool-outline icon--size-18 icon--currentColor button-content u-space-r-half">
+    <svg role="img" class="icon_svg">
+        <use xlink:href="#18x18_cool_outline"></use>
+    </svg>
+</span> <span class="vote-type">Cool</span>
+                                    <span class="count"></span>
+                                </a>
+                            </li>
+
+                        </ul>
+                        <div class="js-deanon-modal-container">
+                            <div class="js-deanon-modal u-hidden">
+                                <div class="modal_body">
+                                    <div class="u-text-centered u-space-t6 u-space-b6">
+                                        <h3 class="u-space-b3">Others will see how you vote!</h3>
+
+                                        <div class="u-space-b3">
+                                            <img src="https://s3-media3.fl.yelpcdn.com/assets/srv0/yelp_deanonymize_ufc/f871a0ff7872/lib/img/200x120_ufc_globe.png">
+                                        </div>
+
+                                        <div class="u-space-b2" style="width:76%;margin:auto;">
+                                            Heads up: From now on, other Yelpers will be able to see how you voted. Want
+                                            to chime in?
+                                        </div>
+
+
+                                        <form action="/review_feedback/deanonymize/1.0.0" class="js-deanon-form"
+                                              method="POST">
+                                            <input type="hidden" name="csrftok" class="csrftok"
+                                                   value="daad9801731edbb09291648b9604c60ce81fb5b8250bc280dd925ce1d0fc3974">
+
+                                            <button href="javascript:;" type="submit" value="submit"
+                                                    class="ybtn ybtn--primary ybtn--small js-let-me-vote-button u-space-b1">
+                                                <span>Yes, Let Me Vote!</span></button>
+                                        </form>
+                                        <div class="js-maybe-later-button u-pseudo-link">
+                                            <small>Maybe Later</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </li>
+</ul> 
+"""
+
+from bs4 import BeautifulSoup
+
+
+
+mySoup = BeautifulSoup(my_html, 'html.parser')
+print(mySoup.prettify())
