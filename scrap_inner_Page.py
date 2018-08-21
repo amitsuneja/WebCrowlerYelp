@@ -1,19 +1,23 @@
 from bs4 import BeautifulSoup
 import requests
 
+my_url = "https://www.yelp.com/biz/burger-21-orlando?osq=burger"
+my_html = requests.get(my_url)
 
-myUrl = "https://www.yelp.com/biz/burger-21-orlando?osq=burger"
-myWebPage = requests.get(myUrl)
-mySoup = BeautifulSoup(myWebPage.text, 'html.parser')
+my_soup = BeautifulSoup(my_html.text, "html.parser")
 
-# Raw data from the page
-un_list = mySoup.find('ul', {'class': "ylist ylist-bordered reviews"})
+outer_div = my_soup.find(class_="ylist ylist-bordered reviews")
 
-list_items = un_list.findAll('div', {'class': 'review review--with-sidebar'})  # Creates a list
 
-for i in list_items:
-    u_name = i.find('a', {'class': 'user-display-name js-analytics-click'}).text.strip()
-    u_location = i.find('li', {'class': 'user-location responsive-hidden-small'}).text.strip()
-    u_date = str(i.find('span', {'class': 'rating-qualifier'}).text.strip()[:10].rstrip("\n\r"))
-    u_review = str(i.find('p', {'lang' : 'en'}).text.strip())
-    print("Name: {}\nLocation: {}\nDate: {}\nReview: {}\n{}\n".format(u_name, u_location, u_date, u_review, ("*" * 50)))
+All_inner_div_list = outer_div.findAll(class_="review review--with-sidebar")
+
+for record in All_inner_div_list:
+    name = record.find(class_="user-display-name js-analytics-click")
+    location = record.find(class_="user-location responsive-hidden-small")
+    date = record.find(class_="biz-rating biz-rating-large clearfix")
+    review = record.find('p')
+    print("Name: {}".format(name.text.strip()))
+    print("Location: {}".format(location.text.strip()))
+    print("Date: {}".format(date.text.strip()[0:10].rstrip("\n\r")))
+    print("Review: {}".format(review.text.strip()))
+    print("______________________________________________________")
