@@ -1,19 +1,7 @@
-from selenium import webdriver
-from bs4 import BeautifulSoup
-import requests
-import time
-import copy
-import pickle
-
-yelp_index_page = "https://www.yelp.com"
-exe_for_chrome_web_drive = "C:\\chromedriver_win32\\chromedriver.exe"
-
-
-class MyWebSite(object):
-
     def __init__(self, product, location):
         self.product = product
         self.location = location
+        
 
     def searching_product_in_city(self):
         my_driver = webdriver.Chrome(exe_for_chrome_web_drive)
@@ -62,7 +50,9 @@ class MyWebSite(object):
     @staticmethod
     def write_data_to_csv_file(my_dict):
         csv_file = "D:\\YelpScrappedData\\AshishBhaiFighter.csv"
-        with open(csv_file, "wt") as my_file:
+        with open(csv_file, "wt", encoding='utf-8') as my_file:
+            print("NameOfCompany,", "Rating,", "NumberOfReviews,", "Contact,", "Address,", "Location,",
+                  "NumberOfPages,", "NameOfPerson,", "LocationOfPerson,", "Date,", "review", file=my_file)
             for company in my_dict.keys():
                 for review in my_dict[company]["all_review"]:
                     print("{0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}".format(
@@ -81,11 +71,15 @@ class MyWebSite(object):
 
     @staticmethod
     def convert_selenium_driver_into_soup(my_driver):
+        print(" i am in convert_selenium_driver_into_soup:")
+        
         my_soup = BeautifulSoup(my_driver.page_source, 'lxml')
         return my_soup
 
     @staticmethod
     def getme_soup_of_url(url):
+        print(" i am in getme_soup_of_url:")
+        
         time.sleep(3)
         my_web_page = requests.get(url)
         my_soup = BeautifulSoup(my_web_page.text, 'html.parser')
@@ -93,23 +87,35 @@ class MyWebSite(object):
 
     @staticmethod
     def find_num_of_pages(my_soup):
-        num_of_pages = my_soup.find(class_="page-of-pages")
+        print(" i am in find_num_of_pages:")
+
+        try:
+            num_of_pages = my_soup.find(class_="page-of-pages")
+        except (AttributeError, KeyError, TypeError) as ex:
+            #  print(ex)
+            num_of_pages = "Page 1 of 1"
+
         return int(num_of_pages.text.strip().replace("Page 1 of ", ""))
 
     @staticmethod
     def get_url_of_selinium_driver(my_driver):
+        print(" i am in get_url_of_selinium_driver:")
         return my_driver.current_url
 
     @staticmethod
     def find_search_page_bottom_url(search_page_url, search_page_count):
+        print(" i am in find_search_page_bottom_url:")
+        
         list_of_all_bottom_url = [search_page_url]
         url = search_page_url[0:-4]
-        for i in range(10, (search_page_count*10) - 10, 10):  # formula is *10 for testing i made it *1 and -10 as -90
+        for i in range(10, (search_page_count*10), 10):  # formula is *10 for testing i made it *1
             list_of_all_bottom_url.append(url + "start=" + str(i))
         return list_of_all_bottom_url
 
     @staticmethod
     def dictionary_cleanup(my_dict):
+        print(" i am in dictionary_cleanup:")
+
         my_dict_copy = copy.deepcopy(my_dict)
         for major_key in my_dict_copy.keys():
             for minor_key in my_dict_copy[major_key].keys():
@@ -126,9 +132,10 @@ class MyWebSite(object):
 
     @staticmethod
     def read_shop_details(list_of_search_page_urls):
+        print(" i am in read_shop_details:")
         shop_dict = {}
         for shop_url in list_of_search_page_urls:
-            #  print(shop_url)
+            print(shop_url)
             my_soup = MyWebSite.getme_soup_of_url(shop_url)
             shops_list = my_soup.findAll(class_="media-story")
             for shop in shops_list:
@@ -180,14 +187,23 @@ class MyWebSite(object):
                                         "phone": phone,
                                         "address": address,
                                         "neighbour": neighbour}
+                print("shop_star_rating:", shop_star_rating,
+                      "shop_sub_url:", shop_sub_url,
+                      "review_count:", review_count,
+                      "phone:", phone ,
+                      "address:", address,
+                       "neighbour:", neighbour)
         clean_shop_dict = MyWebSite.dictionary_cleanup(shop_dict)
         return clean_shop_dict
 
     # this code can be modified in case you need more details from shop_page
     @staticmethod
     def find_all_comment_page_urls(my_dict):
+        print(" i am in find_all_comment_page_urls:")
+        
         for key in my_dict.keys():
             shop_url = yelp_index_page + my_dict[key]["shop_sub_url"]
+            print(shop_url)
             shop_soup = MyWebSite.getme_soup_of_url(shop_url)
             comment_page_count = MyWebSite.find_num_of_pages(shop_soup)
             my_dict[key]["comment_page_count"] = comment_page_count
@@ -200,10 +216,12 @@ class MyWebSite(object):
 
     @staticmethod
     def read_all_reviews(my_dict):
+        print(" i am in read_all_reviews:")
+        
         for key in my_dict:
             my_dict[key]["all_review"] = list()
             for url in my_dict[key]["comments_url_list"]:
-                #  print(url)
+                print(url)
                 comment_soup = MyWebSite.getme_soup_of_url(url)
                 outer_div = comment_soup.find(class_="ylist ylist-bordered reviews")
                 all_inner_div_list = outer_div.findAll(class_="review review--with-sidebar")
@@ -237,7 +255,3 @@ class MyWebSite(object):
                     this_user_review.append(review.text.strip())
                     my_dict[key]["all_review"].append(this_user_review)
         return my_dict
-
-
-K = MyWebSite("burger", "Orlando, FL")
-K.searching_product_in_city()
