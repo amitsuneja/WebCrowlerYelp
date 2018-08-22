@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import requests
 import time
 import copy
-
+import pickle
 
 yelp_index_page = "https://www.yelp.com"
 exe_for_chrome_web_drive = "C:\\chromedriver_win32\\chromedriver.exe"
@@ -34,14 +34,50 @@ class MyWebSite(object):
         shop_dict = self.read_shop_details(list_of_search_page_urls)
         shop_dict = self.find_all_comment_page_urls(shop_dict)
         shop_dict = self.read_all_reviews(shop_dict)
+        self.dumpdata_to_pickle_file(shop_dict)
         self.print_my_dictionary(shop_dict)
+        self.write_data_to_csv_file(shop_dict)
+
+    @staticmethod
+    def dumpdata_to_pickle_file(my_dict):
+        pickle_file = "D:\\YelpScrappedData\\AshishBhaiFighter.pickle"
+        with open(pickle_file, 'wb') as my_picklefile:
+            pickle.dump(my_dict, my_picklefile)
 
     @staticmethod
     def print_my_dictionary(my_dict):
-        print("        ")
-        for key, value in my_dict.items():
-            print(key, value)
-            print("        ")
+        for company in my_dict.keys():
+            for review in my_dict[company]["all_review"]:
+                print("{0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}".format(
+                    company,
+                    my_dict[company]["shop_star_rating"],
+                    my_dict[company]["review_count"],
+                    my_dict[company]["phone"],
+                    my_dict[company]["address"],
+                    my_dict[company]["neighbour"],
+                    my_dict[company]["comment_page_count"],
+                    review
+                    ))
+
+    @staticmethod
+    def write_data_to_csv_file(my_dict):
+        csv_file = "D:\\YelpScrappedData\\AshishBhaiFighter.csv"
+        with open(csv_file, "wt") as my_file:
+            for company in my_dict.keys():
+                for review in my_dict[company]["all_review"]:
+                    print("{0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}".format(
+                        company,
+                        my_dict[company]["shop_star_rating"],
+                        my_dict[company]["review_count"],
+                        my_dict[company]["phone"],
+                        my_dict[company]["address"],
+                        my_dict[company]["neighbour"],
+                        my_dict[company]["comment_page_count"],
+                        review[0].replace(",", "-").replace("\n", "-").replace("\r", "-"),
+                        review[1].replace(",", "-").replace("\n", "-").replace("\r", "-"),
+                        review[2].replace(",", "-").replace("\n", "-").replace("\r", "-"),
+                        review[3].replace(",", "-").replace("\n", "-").replace("\r", "-")
+                    ), file=my_file)
 
     @staticmethod
     def convert_selenium_driver_into_soup(my_driver):
@@ -68,7 +104,7 @@ class MyWebSite(object):
     def find_search_page_bottom_url(search_page_url, search_page_count):
         list_of_all_bottom_url = [search_page_url]
         url = search_page_url[0:-4]
-        for i in range(10, (search_page_count*1) - 80, 10):  # formula is *10 for testing i made it *1 and -10 as -90
+        for i in range(10, (search_page_count*10) - 10, 10):  # formula is *10 for testing i made it *1 and -10 as -90
             list_of_all_bottom_url.append(url + "start=" + str(i))
         return list_of_all_bottom_url
 
@@ -92,7 +128,7 @@ class MyWebSite(object):
     def read_shop_details(list_of_search_page_urls):
         shop_dict = {}
         for shop_url in list_of_search_page_urls:
-            print(shop_url)
+            #  print(shop_url)
             my_soup = MyWebSite.getme_soup_of_url(shop_url)
             shops_list = my_soup.findAll(class_="media-story")
             for shop in shops_list:
@@ -157,7 +193,7 @@ class MyWebSite(object):
             my_dict[key]["comment_page_count"] = comment_page_count
             list_of_comment_urls = [shop_url]
             if comment_page_count > 1:
-                for i in range(20, comment_page_count*2, 20):   # formula is *20 for testing i made it *2
+                for i in range(20, comment_page_count*20, 20):   # formula is *20 for testing i made it *2
                     list_of_comment_urls.append(shop_url + "&start=" + str(i))
             my_dict[key]["comments_url_list"] = list_of_comment_urls
         return my_dict
@@ -167,7 +203,7 @@ class MyWebSite(object):
         for key in my_dict:
             my_dict[key]["all_review"] = list()
             for url in my_dict[key]["comments_url_list"]:
-                print(url)
+                #  print(url)
                 comment_soup = MyWebSite.getme_soup_of_url(url)
                 outer_div = comment_soup.find(class_="ylist ylist-bordered reviews")
                 all_inner_div_list = outer_div.findAll(class_="review review--with-sidebar")
@@ -202,5 +238,6 @@ class MyWebSite(object):
                     my_dict[key]["all_review"].append(this_user_review)
         return my_dict
 
+
 K = MyWebSite("burger", "Orlando, FL")
-X = K.searching_product_in_city()
+K.searching_product_in_city()
