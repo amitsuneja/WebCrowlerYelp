@@ -1,8 +1,12 @@
 myDict = {"Beth’s Burger Bar":
 
-              {'shop_star_rating': '4.0 star rating', 'shop_sub_url': '/biz/beths-burger-bar-orlando-2?osq=burger',
-               'review_count': '112 reviews', 'phone': '(407) 203-8100', 'address': '9938 Universal Blvd',
-               'neighbour': 'International Drive / I-Drive', 'comment_page_count': 6,
+              {'shop_star_rating': '4.0 star rating', 
+               'shop_sub_url': '/biz/beths-burger-bar-orlando-2?osq=burger',
+               'review_count': '112 reviews', 
+               'phone': '(407) 203-8100', 
+               'address': '9938 Universal Blvd',
+               'neighbour': 'International Drive / I-Drive', 
+               'comment_page_count': 6,
                'comments_url_list': ['https://www.yelp.com/biz/beths-burger-bar-orlando-2?osq=burger'],
                'all_review': [
                    ['Bryan W.', 'Lakeville, MN', '6/27/2018',
